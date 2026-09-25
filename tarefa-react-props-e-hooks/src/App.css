@@ -1,0 +1,86 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #eef1f6;
+  color: #2b2f36;
+}
+
+.app {
+  max-width: 440px;
+  margin: 40px auto;
+  padding: 0 16px;
+  text-align: center;
+}
+
+.contador {
+  background-color: white;
+  border-radius: 10px;
+  padding: 24px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+.valor {
+  font-size: 64px;
+  font-weight: bold;
+  margin: 0;
+  color: #3553d6;
+}
+
+.intervalo {
+  margin: 4px 0 20px;
+  color: #777;
+  font-size: 14px;
+}
+
+.botoes {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+button {
+  padding: 10px 14px;
+  border: none;
+  border-radius: 6px;
+  background-color: #4a6cf7;
+  color: white;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #3553d6;
+}
+
+button:disabled {
+  background-color: #b5bccc;
+  cursor: not-allowed;
+}
+
+.erro {
+  color: #d33;
+  font-size: 14px;
+  margin: 12px 0 0;
+}
+
+.configs {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  margin-top: 24px;
+}
+
+.campo {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 14px;
+}
+
+.campo input {
+  width: 80px;
+  padding: 6px;
+  text-align: center;
+  font-size: 15px;
+}
