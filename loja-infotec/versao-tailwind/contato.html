@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contato - InfoTec (Tailwind)</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            azul: "#2f6bd8",
+            azulescuro: "#1f4fa3",
+            laranja: "#ff8a3d",
+            verde: "#2fa060",
+          },
+          fontFamily: {
+            corpo: ['"Trebuchet MS"', '"Segoe UI"', "Arial", "sans-serif"],
+          },
+        },
+      },
+    };
+  </script>
+</head>
+<body class="font-corpo text-[#2b2f36] bg-[#f2f5f9] leading-relaxed">
+
+  <!-- ===== CABECALHO + MENU ===== -->
+  <header class="bg-azul text-white py-3 border-b-4 border-azulescuro">
+    <div class="max-w-5xl mx-auto px-5 flex flex-wrap items-center justify-between gap-3">
+      <div class="text-2xl font-bold">Info<span class="text-laranja">Tec</span></div>
+      <nav class="flex flex-wrap gap-2">
+        <a href="index.html" class="px-3 py-1.5 rounded-md font-bold hover:bg-azulescuro">Inicio</a>
+        <a href="produtos.html" class="px-3 py-1.5 rounded-md font-bold hover:bg-azulescuro">Produtos</a>
+        <a href="contato.html" class="px-3 py-1.5 rounded-md font-bold bg-azulescuro">Contato</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ===== SECAO 1: BANNER DA PAGINA ===== -->
+  <section class="bg-azulescuro text-white text-center py-11 px-5">
+    <div class="max-w-5xl mx-auto">
+      <h1 class="text-3xl font-bold mb-2">Fale com a gente</h1>
+      <p>Duvida, orcamento ou suporte? Responde o formulario que a gente retorna.</p>
+    </div>
+  </section>
+
+  <!-- ===== SECAO 2: FORMULARIO + DADOS DA LOJA (lado a lado com flex) ===== -->
+  <section class="py-14 px-5">
+    <div class="max-w-5xl mx-auto">
+      <h2 class="text-center text-2xl font-bold text-azulescuro mb-1">Envie sua mensagem</h2>
+      <p class="text-center text-gray-500 mb-8">A gente responde em ate 1 dia util</p>
+
+      <div class="flex flex-wrap gap-8">
+        <!-- Formulario (so HTML/CSS, sem envio de verdade) -->
+        <form action="#" class="flex-1 min-w-[340px] bg-white border-2 border-[#d9e0ea] rounded-xl p-6">
+          <label for="nome" class="block font-bold mb-1.5 mt-3.5">Nome</label>
+          <input type="text" id="nome" name="nome" placeholder="Seu nome completo"
+                 class="w-full p-2.5 border-2 border-[#d9e0ea] rounded-md text-[15px]">
+
+          <label for="email" class="block font-bold mb-1.5 mt-3.5">E-mail</label>
+          <input type="email" id="email" name="email" placeholder="voce@email.com"
+                 class="w-full p-2.5 border-2 border-[#d9e0ea] rounded-md text-[15px]">
+
+          <label for="telefone" class="block font-bold mb-1.5 mt-3.5">Telefone / WhatsApp</label>
+          <input type="tel" id="telefone" name="telefone" placeholder="(46) 90000-0000"
+                 class="w-full p-2.5 border-2 border-[#d9e0ea] rounded-md text-[15px]">
+
+          <label for="assunto" class="block font-bold mb-1.5 mt-3.5">Assunto</label>
+          <input type="text" id="assunto" name="assunto" placeholder="Ex: orcamento de PC gamer"
+                 class="w-full p-2.5 border-2 border-[#d9e0ea] rounded-md text-[15px]">
+
+          <label for="mensagem" class="block font-bold mb-1.5 mt-3.5">Mensagem</label>
+          <textarea id="mensagem" name="mensagem" placeholder="Escreva aqui o que voce precisa..."
+                    class="w-full p-2.5 border-2 border-[#d9e0ea] rounded-md text-[15px] min-h-[120px] resize-y"></textarea>
+
+          <button type="submit"
+                  class="w-full mt-5 bg-laranja text-white font-bold px-6 py-3 rounded-lg hover:bg-orange-500">
+            Enviar mensagem
+          </button>
+        </form>
+
+        <!-- Dados da loja -->
+        <div class="flex-1 min-w-[260px]">
+          <div class="bg-white border-2 border-[#d9e0ea] rounded-xl p-4 mb-3.5">
+            <span class="text-2xl">&#128205;</span>
+            <h3 class="font-bold text-azulescuro">Endereco</h3>
+            <p>Rua das Placas, 404<br>Centro - Pato Branco / PR</p>
+          </div>
+          <div class="bg-white border-2 border-[#d9e0ea] rounded-xl p-4 mb-3.5">
+            <span class="text-2xl">&#128222;</span>
+            <h3 class="font-bold text-azulescuro">Telefone</h3>
+            <p>(46) 99999-0000</p>
+          </div>
+          <div class="bg-white border-2 border-[#d9e0ea] rounded-xl p-4 mb-3.5">
+            <span class="text-2xl">&#128231;</span>
+            <h3 class="font-bold text-azulescuro">E-mail</h3>
+            <p>contato@infotec.com</p>
+          </div>
+          <div class="bg-white border-2 border-[#d9e0ea] rounded-xl p-4">
+            <span class="text-2xl">&#128241;</span>
+            <h3 class="font-bold text-azulescuro">Redes</h3>
+            <p>@infotec.loja no Instagram</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SECAO 3: MAPA + HORARIOS ===== -->
+  <section class="bg-white py-14 px-5">
+    <div class="max-w-5xl mx-auto">
+      <h2 class="text-center text-2xl font-bold text-azulescuro mb-1">Onde estamos</h2>
+      <p class="text-center text-gray-500 mb-8">Passa la pra tomar um cafe e ver os produtos</p>
+
+      <div class="flex flex-wrap gap-8">
+        <div class="flex-1 min-w-[320px] h-64 bg-[#dfe7f1] border-2 border-dashed border-azul rounded-xl flex items-center justify-center text-azulescuro font-bold text-lg text-center">
+          [ Aqui entraria o mapa da loja ]
+        </div>
+
+        <div class="flex-1 min-w-[260px]">
+          <div class="bg-[#f2f5f9] border-2 border-[#d9e0ea] rounded-xl p-4 mb-3.5">
+            <span class="text-2xl">&#128197;</span>
+            <h3 class="font-bold text-azulescuro">Horario de atendimento</h3>
+            <p>Segunda a Sexta: 9h as 18h<br>Sabado: 9h as 13h<br>Domingo: fechado</p>
+          </div>
+          <div class="bg-[#f2f5f9] border-2 border-[#d9e0ea] rounded-xl p-4">
+            <span class="text-2xl">&#128666;</span>
+            <h3 class="font-bold text-azulescuro">Retirada na loja</h3>
+            <p>Comprou pelo site? Pode retirar no balcao em 1 hora.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SECAO 4: PERGUNTAS FREQUENTES ===== -->
+  <section class="py-14 px-5">
+    <div class="max-w-5xl mx-auto">
+      <h2 class="text-center text-2xl font-bold text-azulescuro mb-1">Perguntas frequentes</h2>
+      <p class="text-center text-gray-500 mb-8">As duvidas que mais chegam pra gente</p>
+
+      <div class="flex flex-wrap gap-5 justify-center">
+        <div class="bg-white border-2 border-[#d9e0ea] rounded-xl p-6 w-72 text-center">
+          <span class="text-4xl block mb-2">&#10067;</span>
+          <h3 class="font-bold text-azulescuro mb-2">Voces montam PC?</h3>
+          <p>Sim, montamos e testamos antes de entregar.</p>
+        </div>
+        <div class="bg-white border-2 border-[#d9e0ea] rounded-xl p-6 w-72 text-center">
+          <span class="text-4xl block mb-2">&#128179;</span>
+          <h3 class="font-bold text-azulescuro mb-2">Quais formas de pagamento?</h3>
+          <p>Pix, boleto e cartao em ate 12x.</p>
+        </div>
+        <div class="bg-white border-2 border-[#d9e0ea] rounded-xl p-6 w-72 text-center">
+          <span class="text-4xl block mb-2">&#128666;</span>
+          <h3 class="font-bold text-azulescuro mb-2">Entregam na minha cidade?</h3>
+          <p>Enviamos pra todo o Brasil pelos Correios.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== RODAPE ===== -->
+  <footer class="bg-[#1c2530] text-[#cdd5df] pt-10 pb-5 px-5">
+    <div class="max-w-5xl mx-auto">
+      <div class="flex flex-wrap gap-8 justify-between">
+        <div class="flex-1 min-w-[220px]">
+          <h4 class="text-white font-bold mb-3">InfoTec</h4>
+          <p>Sua loja de informatica desde 2026. Preco bom e atendimento gente boa.</p>
+        </div>
+        <div class="flex-1 min-w-[220px]">
+          <h4 class="text-white font-bold mb-3">Paginas</h4>
+          <p><a href="index.html" class="hover:text-laranja">Inicio</a></p>
+          <p><a href="produtos.html" class="hover:text-laranja">Produtos</a></p>
+          <p><a href="contato.html" class="hover:text-laranja">Contato</a></p>
+        </div>
+        <div class="flex-1 min-w-[220px]">
+          <h4 class="text-white font-bold mb-3">Contato</h4>
+          <p>Pato Branco - PR</p>
+          <p>(46) 99999-0000</p>
+          <p>contato@infotec.com</p>
+        </div>
+      </div>
+      <p class="text-center border-t border-[#33404f] mt-6 pt-4 text-sm">&copy; 2026 InfoTec - Trabalho de Desenvolvimento Web</p>
+    </div>
+  </footer>
+
+</body>
+</html>

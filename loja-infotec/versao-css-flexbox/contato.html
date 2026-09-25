@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contato - InfoTec</title>
+  <link rel="stylesheet" href="css/estilo.css">
+</head>
+<body>
+
+  <!-- ===== CABECALHO + MENU ===== -->
+  <header class="cabecalho">
+    <div class="container">
+      <div class="logo">Info<span>Tec</span></div>
+      <nav class="menu">
+        <a href="index.html">Inicio</a>
+        <a href="produtos.html">Produtos</a>
+        <a href="contato.html" class="ativo">Contato</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ===== SECAO 1: BANNER DA PAGINA ===== -->
+  <section class="banner-interno">
+    <div class="container">
+      <h1>Fale com a gente</h1>
+      <p>Duvida, orcamento ou suporte? Responde o formulario que a gente retorna.</p>
+    </div>
+  </section>
+
+  <!-- ===== SECAO 2: FORMULARIO + DADOS DA LOJA (lado a lado com Flexbox) ===== -->
+  <section>
+    <div class="container">
+      <h2 class="titulo-secao">Envie sua mensagem</h2>
+      <p class="subtitulo-secao">A gente responde em ate 1 dia util</p>
+
+      <div class="bloco-contato">
+        <!-- Formulario (so HTML e CSS, sem envio de verdade) -->
+        <form class="formulario" action="#">
+          <label for="nome">Nome</label>
+          <input type="text" id="nome" name="nome" placeholder="Seu nome completo">
+
+          <label for="email">E-mail</label>
+          <input type="email" id="email" name="email" placeholder="voce@email.com">
+
+          <label for="telefone">Telefone / WhatsApp</label>
+          <input type="tel" id="telefone" name="telefone" placeholder="(46) 90000-0000">
+
+          <label for="assunto">Assunto</label>
+          <input type="text" id="assunto" name="assunto" placeholder="Ex: orcamento de PC gamer">
+
+          <label for="mensagem">Mensagem</label>
+          <textarea id="mensagem" name="mensagem" placeholder="Escreva aqui o que voce precisa..."></textarea>
+
+          <button type="submit" class="botao">Enviar mensagem</button>
+        </form>
+
+        <!-- Dados da loja -->
+        <div class="dados-loja">
+          <div class="item">
+            <span>&#128205;</span>
+            <h3>Endereco</h3>
+            <p>Rua das Placas, 404<br>Centro - Pato Branco / PR</p>
+          </div>
+          <div class="item">
+            <span>&#128222;</span>
+            <h3>Telefone</h3>
+            <p>(46) 99999-0000</p>
+          </div>
+          <div class="item">
+            <span>&#128231;</span>
+            <h3>E-mail</h3>
+            <p>contato@infotec.com</p>
+          </div>
+          <div class="item">
+            <span>&#128241;</span>
+            <h3>Redes</h3>
+            <p>@infotec.loja no Instagram</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SECAO 3: MAPA + HORARIOS ===== -->
+  <section class="faixa-clara">
+    <div class="container">
+      <h2 class="titulo-secao">Onde estamos</h2>
+      <p class="subtitulo-secao">Passa la pra tomar um cafe e ver os produtos</p>
+
+      <div class="bloco-contato">
+        <div class="mapa">
+          [ Aqui entraria o mapa da loja ]
+        </div>
+
+        <div class="dados-loja">
+          <div class="item">
+            <span>&#128197;</span>
+            <h3>Horario de atendimento</h3>
+            <p>Segunda a Sexta: 9h as 18h<br>Sabado: 9h as 13h<br>Domingo: fechado</p>
+          </div>
+          <div class="item">
+            <span>&#128666;</span>
+            <h3>Retirada na loja</h3>
+            <p>Comprou pelo site? Pode retirar no balcao em 1 hora.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SECAO 4: PERGUNTAS FREQUENTES ===== -->
+  <section>
+    <div class="container">
+      <h2 class="titulo-secao">Perguntas frequentes</h2>
+      <p class="subtitulo-secao">As duvidas que mais chegam pra gente</p>
+
+      <div class="linha-cards">
+        <div class="card">
+          <span class="icone">&#10067;</span>
+          <h3>Voces montam PC?</h3>
+          <p>Sim, montamos e testamos antes de entregar.</p>
+        </div>
+        <div class="card">
+          <span class="icone">&#128179;</span>
+          <h3>Quais formas de pagamento?</h3>
+          <p>Pix, boleto e cartao em ate 12x.</p>
+        </div>
+        <div class="card">
+          <span class="icone">&#128666;</span>
+          <h3>Entregam na minha cidade?</h3>
+          <p>Enviamos pra todo o Brasil pelos Correios.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== RODAPE ===== -->
+  <footer class="rodape">
+    <div class="container">
+      <div class="colunas">
+        <div class="coluna">
+          <h4>InfoTec</h4>
+          <p>Sua loja de informatica desde 2026. Preco bom e atendimento gente boa.</p>
+        </div>
+        <div class="coluna">
+          <h4>Paginas</h4>
+          <p><a href="index.html">Inicio</a></p>
+          <p><a href="produtos.html">Produtos</a></p>
+          <p><a href="contato.html">Contato</a></p>
+        </div>
+        <div class="coluna">
+          <h4>Contato</h4>
+          <p>Pato Branco - PR</p>
+          <p>(46) 99999-0000</p>
+          <p>contato@infotec.com</p>
+        </div>
+      </div>
+      <p class="creditos">&copy; 2026 InfoTec - Trabalho de Desenvolvimento Web</p>
+    </div>
+  </footer>
+
+</body>
+</html>

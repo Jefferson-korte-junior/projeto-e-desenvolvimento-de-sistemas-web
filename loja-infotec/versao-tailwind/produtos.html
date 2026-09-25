@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Produtos - InfoTec (Tailwind)</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            azul: "#2f6bd8",
+            azulescuro: "#1f4fa3",
+            laranja: "#ff8a3d",
+            verde: "#2fa060",
+          },
+          fontFamily: {
+            corpo: ['"Trebuchet MS"', '"Segoe UI"', "Arial", "sans-serif"],
+          },
+        },
+      },
+    };
+  </script>
+</head>
+<body class="font-corpo text-[#2b2f36] bg-[#f2f5f9] leading-relaxed">
+
+  <!-- ===== CABECALHO + MENU ===== -->
+  <header class="bg-azul text-white py-3 border-b-4 border-azulescuro">
+    <div class="max-w-5xl mx-auto px-5 flex flex-wrap items-center justify-between gap-3">
+      <div class="text-2xl font-bold">Info<span class="text-laranja">Tec</span></div>
+      <nav class="flex flex-wrap gap-2">
+        <a href="index.html" class="px-3 py-1.5 rounded-md font-bold hover:bg-azulescuro">Inicio</a>
+        <a href="produtos.html" class="px-3 py-1.5 rounded-md font-bold bg-azulescuro">Produtos</a>
+        <a href="contato.html" class="px-3 py-1.5 rounded-md font-bold hover:bg-azulescuro">Contato</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ===== SECAO 1: BANNER DA PAGINA ===== -->
+  <section class="bg-azulescuro text-white text-center py-11 px-5">
+    <div class="max-w-5xl mx-auto">
+      <h1 class="text-3xl font-bold mb-2">Nossos Produtos</h1>
+      <p>Tudo separado por categoria pra voce achar rapido.</p>
+    </div>
+  </section>
+
+  <!-- ===== SECAO 2: FILTROS + LISTA DE PRODUTOS ===== -->
+  <section class="py-14 px-5">
+    <div class="max-w-5xl mx-auto">
+      <h2 class="text-center text-2xl font-bold text-azulescuro mb-1">Catalogo</h2>
+      <p class="text-center text-gray-500 mb-8">Clique numa categoria pra dar uma olhada</p>
+
+      <!-- Filtros: so parte visual -->
+      <div class="flex flex-wrap gap-2.5 justify-center mb-8">
+        <button class="bg-azul text-white border-2 border-azul px-4 py-2 rounded-full font-bold text-sm">Todos</button>
+        <button class="bg-white border-2 border-[#d9e0ea] px-4 py-2 rounded-full font-bold text-sm hover:bg-azul hover:text-white hover:border-azul">Notebooks</button>
+        <button class="bg-white border-2 border-[#d9e0ea] px-4 py-2 rounded-full font-bold text-sm hover:bg-azul hover:text-white hover:border-azul">Perifericos</button>
+        <button class="bg-white border-2 border-[#d9e0ea] px-4 py-2 rounded-full font-bold text-sm hover:bg-azul hover:text-white hover:border-azul">Pecas</button>
+        <button class="bg-white border-2 border-[#d9e0ea] px-4 py-2 rounded-full font-bold text-sm hover:bg-azul hover:text-white hover:border-azul">Setup</button>
+      </div>
+
+      <div class="flex flex-wrap gap-5 justify-center">
+        <div class="bg-white border-2 border-[#d9e0ea] rounded-xl w-60 overflow-hidden text-center">
+          <div class="bg-[#e8eef7] text-6xl py-6">&#128187;</div>
+          <div class="p-4">
+            <span class="inline-block bg-laranja text-white text-xs font-bold px-2.5 py-1 rounded-full mb-2">PROMOCAO</span>
+            <h3 class="text-base font-bold mb-1">Notebook Aspire 5</h3>
+            <span class="block text-verde text-xl font-bold mb-3">R$ 3.199,00</span>
+            <a href="contato.html" class="inline-block bg-laranja text-white font-bold px-5 py-2.5 rounded-lg hover:bg-orange-500">Comprar</a>
+          </div>
+        </div>
+
+        <div class="bg-white border-2 border-[#d9e0ea] rounded-xl w-60 overflow-hidden text-center">
+          <div class="bg-[#e8eef7] text-6xl py-6">&#128187;</div>
+          <div class="p-4">
+            <h3 class="text-base font-bold mb-1">Notebook Gamer Nitro V</h3>
+            <span class="block text-verde text-xl font-bold mb-3">R$ 4.899,00</span>
+            <a href="contato.html" class="inline-block bg-laranja text-white font-bold px-5 py-2.5 rounded-lg hover:bg-orange-500">Comprar</a>
+          </div>
+        </div>
+
+        <div class="bg-white border-2 border-[#d9e0ea] rounded-xl w-60 overflow-hidden text-center">
+          <div class="bg-[#e8eef7] text-6xl py-6">&#128433;</div>
+          <div class="p-4">
+            <h3 class="text-base font-bold mb-1">Mouse Gamer Redragon</h3>
+            <span class="block text-verde text-xl font-bold mb-3">R$ 149,00</span>
+            <a href="contato.html" class="inline-block bg-laranja text-white font-bold px-5 py-2.5 rounded-lg hover:bg-orange-500">Comprar</a>
+          </div>
+        </div>
+
+        <div class="bg-white border-2 border-[#d9e0ea] rounded-xl w-60 overflow-hidden text-center">
+          <div class="bg-[#e8eef7] text-6xl py-6">&#9000;</div>
+          <div class="p-4">
+            <span class="inline-block bg-laranja text-white text-xs font-bold px-2.5 py-1 rounded-full mb-2">PROMOCAO</span>
+            <h3 class="text-base font-bold mb-1">Teclado Mecanico RGB</h3>
+            <span class="block text-verde text-xl font-bold mb-3">R$ 279,00</span>
+            <a href="contato.html" class="inline-block bg-laranja text-white font-bold px-5 py-2.5 rounded-lg hover:bg-orange-500">Comprar</a>
+          </div>
+        </div>
+
+        <div class="bg-white border-2 border-[#d9e0ea] rounded-xl w-60 overflow-hidden text-center">
+          <div class="bg-[#e8eef7] text-6xl py-6">&#127911;</div>
+          <div class="p-4">
+            <h3 class="text-base font-bold mb-1">Headset 7.1 Surround</h3>
+            <span class="block text-verde text-xl font-bold mb-3">R$ 219,00</span>
+            <a href="contato.html" class="inline-block bg-laranja text-white font-bold px-5 py-2.5 rounded-lg hover:bg-orange-500">Comprar</a>
+          </div>
+        </div>
+
+        <div class="bg-white border-2 border-[#d9e0ea] rounded-xl w-60 overflow-hidden text-center">
+          <div class="bg-[#e8eef7] text-6xl py-6">&#128421;</div>
+          <div class="p-4">
+            <h3 class="text-base font-bold mb-1">Monitor 24" 75Hz</h3>
+            <span class="block text-verde text-xl font-bold mb-3">R$ 749,00</span>
+            <a href="contato.html" class="inline-block bg-laranja text-white font-bold px-5 py-2.5 rounded-lg hover:bg-orange-500">Comprar</a>
+          </div>
+        </div>
+
+        <div class="bg-white border-2 border-[#d9e0ea] rounded-xl w-60 overflow-hidden text-center">
+          <div class="bg-[#e8eef7] text-6xl py-6">&#128190;</div>
+          <div class="p-4">
+            <span class="inline-block bg-laranja text-white text-xs font-bold px-2.5 py-1 rounded-full mb-2">PROMOCAO</span>
+            <h3 class="text-base font-bold mb-1">SSD 1TB NVMe</h3>
+            <span class="block text-verde text-xl font-bold mb-3">R$ 389,00</span>
+            <a href="contato.html" class="inline-block bg-laranja text-white font-bold px-5 py-2.5 rounded-lg hover:bg-orange-500">Comprar</a>
+          </div>
+        </div>
+
+        <div class="bg-white border-2 border-[#d9e0ea] rounded-xl w-60 overflow-hidden text-center">
+          <div class="bg-[#e8eef7] text-6xl py-6">&#129504;</div>
+          <div class="p-4">
+            <h3 class="text-base font-bold mb-1">Memoria RAM 16GB DDR4</h3>
+            <span class="block text-verde text-xl font-bold mb-3">R$ 219,00</span>
+            <a href="contato.html" class="inline-block bg-laranja text-white font-bold px-5 py-2.5 rounded-lg hover:bg-orange-500">Comprar</a>
+          </div>
+        </div>
+
+        <div class="bg-white border-2 border-[#d9e0ea] rounded-xl w-60 overflow-hidden text-center">
+          <div class="bg-[#e8eef7] text-6xl py-6">&#129681;</div>
+          <div class="p-4">
+            <h3 class="text-base font-bold mb-1">Cadeira Gamer Preta</h3>
+            <span class="block text-verde text-xl font-bold mb-3">R$ 899,00</span>
+            <a href="contato.html" class="inline-block bg-laranja text-white font-bold px-5 py-2.5 rounded-lg hover:bg-orange-500">Comprar</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SECAO 3: VANTAGENS DA LOJA ===== -->
+  <section class="bg-white py-14 px-5">
+    <div class="max-w-5xl mx-auto">
+      <h2 class="text-center text-2xl font-bold text-azulescuro mb-1">Comprar aqui e tranquilo</h2>
+      <p class="text-center text-gray-500 mb-8">Alguns motivos pra fechar com a gente</p>
+
+      <div class="flex flex-wrap gap-5 justify-center">
+        <div class="bg-[#f2f5f9] border-2 border-[#d9e0ea] rounded-xl p-6 w-72 text-center">
+          <span class="text-4xl block mb-2">&#9989;</span>
+          <h3 class="font-bold text-azulescuro mb-2">Produto testado</h3>
+          <p>A gente confere antes de enviar.</p>
+        </div>
+        <div class="bg-[#f2f5f9] border-2 border-[#d9e0ea] rounded-xl p-6 w-72 text-center">
+          <span class="text-4xl block mb-2">&#128230;</span>
+          <h3 class="font-bold text-azulescuro mb-2">Troca facil</h3>
+          <p>7 dias pra trocar sem estresse.</p>
+        </div>
+        <div class="bg-[#f2f5f9] border-2 border-[#d9e0ea] rounded-xl p-6 w-72 text-center">
+          <span class="text-4xl block mb-2">&#128172;</span>
+          <h3 class="font-bold text-azulescuro mb-2">Atendimento humano</h3>
+          <p>Fala com gente de verdade no WhatsApp.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SECAO 4: FAIXA DE PROMOCAO ===== -->
+  <section class="bg-laranja text-white text-center py-14 px-5">
+    <div class="max-w-5xl mx-auto">
+      <h2 class="text-2xl font-bold mb-2">Montando um PC novo?</h2>
+      <p class="mb-5">Manda a lista das pecas que a gente monta um orcamento fechado pra voce.</p>
+      <a href="contato.html" class="inline-block bg-azulescuro text-white font-bold px-6 py-3 rounded-lg hover:bg-azul">Pedir orcamento</a>
+    </div>
+  </section>
+
+  <!-- ===== RODAPE ===== -->
+  <footer class="bg-[#1c2530] text-[#cdd5df] pt-10 pb-5 px-5">
+    <div class="max-w-5xl mx-auto">
+      <div class="flex flex-wrap gap-8 justify-between">
+        <div class="flex-1 min-w-[220px]">
+          <h4 class="text-white font-bold mb-3">InfoTec</h4>
+          <p>Sua loja de informatica desde 2026. Preco bom e atendimento gente boa.</p>
+        </div>
+        <div class="flex-1 min-w-[220px]">
+          <h4 class="text-white font-bold mb-3">Paginas</h4>
+          <p><a href="index.html" class="hover:text-laranja">Inicio</a></p>
+          <p><a href="produtos.html" class="hover:text-laranja">Produtos</a></p>
+          <p><a href="contato.html" class="hover:text-laranja">Contato</a></p>
+        </div>
+        <div class="flex-1 min-w-[220px]">
+          <h4 class="text-white font-bold mb-3">Contato</h4>
+          <p>Pato Branco - PR</p>
+          <p>(46) 99999-0000</p>
+          <p>contato@infotec.com</p>
+        </div>
+      </div>
+      <p class="text-center border-t border-[#33404f] mt-6 pt-4 text-sm">&copy; 2026 InfoTec - Trabalho de Desenvolvimento Web</p>
+    </div>
+  </footer>
+
+</body>
+</html>
