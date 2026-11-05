@@ -1,0 +1,357 @@
+# Requisições da API da Biblioteca
+#
+# Pra usar: instale a extensão "REST Client" no VS Code e clique no
+# "Send Request" que aparece em cima de cada requisição.
+#
+# IMPORTANTE: rode as requisições na ordem, de cima pra baixo, com o banco
+# vazio. Os ids usados aqui (autor 1, livro 1, leitor 1...) são os que o banco
+# gera nessa sequência. Se o banco já tiver dados, os ids vão ser outros.
+#
+# Pra limpar o banco e começar do zero:
+#   docker compose down -v
+#   docker compose up -d
+
+@base = http://localhost:3000
+
+
+# =============================================================
+# AUTORES
+# =============================================================
+
+### 1. POST /autores - cria um autor (201)
+POST {{base}}/autores
+Content-Type: application/json
+
+{
+  "nome": "Machado de Assis"
+}
+
+### 2. POST /autores - cria o segundo autor (201)
+POST {{base}}/autores
+Content-Type: application/json
+
+{
+  "nome": "Clarice Lispector"
+}
+
+### 3. POST /autores - erro: nome vazio (400)
+POST {{base}}/autores
+Content-Type: application/json
+
+{
+  "nome": ""
+}
+
+### 4. GET /autores - lista os autores (200)
+GET {{base}}/autores
+
+
+# =============================================================
+# CATEGORIAS
+# =============================================================
+
+### 5. POST /categorias - cria uma categoria (201)
+POST {{base}}/categorias
+Content-Type: application/json
+
+{
+  "nome": "Romance"
+}
+
+### 6. POST /categorias - cria a segunda categoria (201)
+POST {{base}}/categorias
+Content-Type: application/json
+
+{
+  "nome": "Conto"
+}
+
+### 7. POST /categorias - erro: sem o campo nome (400)
+POST {{base}}/categorias
+Content-Type: application/json
+
+{
+}
+
+### 8. GET /categorias - lista as categorias (200)
+GET {{base}}/categorias
+
+
+# =============================================================
+# LIVROS
+# =============================================================
+
+### 9. POST /livros - cria livro com 1 exemplar só (201)
+POST {{base}}/livros
+Content-Type: application/json
+
+{
+  "titulo": "Dom Casmurro",
+  "ano": 1899,
+  "exemplares": 1,
+  "autorId": 1,
+  "categoriaId": 1
+}
+
+### 10. POST /livros - cria livro com 3 exemplares (201)
+POST {{base}}/livros
+Content-Type: application/json
+
+{
+  "titulo": "Memorias Postumas de Bras Cubas",
+  "ano": 1881,
+  "exemplares": 3,
+  "autorId": 1,
+  "categoriaId": 1
+}
+
+### 11. POST /livros - cria livro do segundo autor (201)
+POST {{base}}/livros
+Content-Type: application/json
+
+{
+  "titulo": "A Hora da Estrela",
+  "ano": 1977,
+  "exemplares": 2,
+  "autorId": 2,
+  "categoriaId": 2
+}
+
+### 12. POST /livros - erro: o autor 99 não existe (404)
+POST {{base}}/livros
+Content-Type: application/json
+
+{
+  "titulo": "Livro Fantasma",
+  "ano": 2000,
+  "exemplares": 1,
+  "autorId": 99,
+  "categoriaId": 1
+}
+
+### 13. POST /livros - erro: zero exemplares (400)
+POST {{base}}/livros
+Content-Type: application/json
+
+{
+  "titulo": "Livro Sem Exemplar",
+  "ano": 2000,
+  "exemplares": 0,
+  "autorId": 1,
+  "categoriaId": 1
+}
+
+### 14. GET /livros - lista todos (200)
+GET {{base}}/livros
+
+### 15. GET /livros - filtra por categoria (200)
+GET {{base}}/livros?categoria=1
+
+### 16. GET /livros - filtra por autor (200)
+GET {{base}}/livros?autor=2
+
+### 17. GET /livros - filtra só os que têm exemplar livre (200)
+GET {{base}}/livros?disponivel=true
+
+### 18. GET /livros - erro: o filtro categoria não é número (400)
+GET {{base}}/livros?categoria=romance
+
+### 19. GET /livros/:id - detalhe com autor e categoria (200)
+GET {{base}}/livros/1
+
+### 20. GET /livros/:id - erro: livro não existe (404)
+GET {{base}}/livros/999
+
+### 21. GET /livros/:id - erro: id não é número, barrado pelo ParseIntPipe (400)
+GET {{base}}/livros/abc
+
+### 22. PATCH /livros/:id - muda só a quantidade de exemplares (200)
+PATCH {{base}}/livros/2
+Content-Type: application/json
+
+{
+  "exemplares": 4
+}
+
+### 23. PATCH /livros/:id - erro: livro não existe (404)
+PATCH {{base}}/livros/999
+Content-Type: application/json
+
+{
+  "exemplares": 4
+}
+
+### 24. PATCH /livros/:id - erro: ano não é número (400)
+PATCH {{base}}/livros/2
+Content-Type: application/json
+
+{
+  "ano": "mil oitocentos"
+}
+
+
+# =============================================================
+# LEITORES
+# =============================================================
+
+### 25. POST /leitores - cadastra a Ana (201)
+POST {{base}}/leitores
+Content-Type: application/json
+
+{
+  "nome": "Ana Souza",
+  "matricula": "2026001",
+  "email": "ana@aluno.utfpr.edu.br"
+}
+
+### 26. POST /leitores - cadastra o Bruno (201)
+POST {{base}}/leitores
+Content-Type: application/json
+
+{
+  "nome": "Bruno Lima",
+  "matricula": "2026002",
+  "email": "bruno@aluno.utfpr.edu.br"
+}
+
+### 27. POST /leitores - erro: a matrícula 2026001 já existe (409)
+POST {{base}}/leitores
+Content-Type: application/json
+
+{
+  "nome": "Carla Reis",
+  "matricula": "2026001",
+  "email": "carla@aluno.utfpr.edu.br"
+}
+
+### 28. POST /leitores - erro: e-mail inválido (400)
+POST {{base}}/leitores
+Content-Type: application/json
+
+{
+  "nome": "Daniel Alves",
+  "matricula": "2026003",
+  "email": "daniel-sem-arroba"
+}
+
+
+# =============================================================
+# EMPRESTIMOS
+# =============================================================
+
+### 29. POST /emprestimos - Ana pega o Dom Casmurro (201)
+# REGRA R3: olhe a resposta. A dataPrevista veio com 14 dias depois da
+# dataRetirada, e eu não mandei nenhuma data no corpo da requisição.
+POST {{base}}/emprestimos
+Content-Type: application/json
+
+{
+  "livroId": 1,
+  "leitorId": 1
+}
+
+### 30. POST /emprestimos - ERRO DA REGRA R1 (409, codigo SEM_EXEMPLAR)
+# O Dom Casmurro tem 1 exemplar só, e a Ana está com ele desde a requisição 29.
+# Então não sobrou exemplar pro Bruno.
+POST {{base}}/emprestimos
+Content-Type: application/json
+
+{
+  "livroId": 1,
+  "leitorId": 2
+}
+
+### 31. DELETE /livros/:id - ERRO DA REGRA R6 (409)
+# O Dom Casmurro está emprestado com a Ana, então não pode ser excluído.
+DELETE {{base}}/livros/1
+
+### 32. POST /emprestimos - segundo empréstimo da Ana (201)
+POST {{base}}/emprestimos
+Content-Type: application/json
+
+{
+  "livroId": 2,
+  "leitorId": 1
+}
+
+### 33. POST /emprestimos - terceiro empréstimo da Ana (201)
+POST {{base}}/emprestimos
+Content-Type: application/json
+
+{
+  "livroId": 3,
+  "leitorId": 1
+}
+
+### 34. POST /emprestimos - ERRO DA REGRA R2 (409, codigo LIMITE_EMPRESTIMOS)
+# A Ana já está com 3 livros em aberto, esse seria o quarto.
+POST {{base}}/emprestimos
+Content-Type: application/json
+
+{
+  "livroId": 2,
+  "leitorId": 1
+}
+
+### 35. POST /emprestimos - erro: o livro 99 não existe (404)
+POST {{base}}/emprestimos
+Content-Type: application/json
+
+{
+  "livroId": 99,
+  "leitorId": 1
+}
+
+### 36. POST /emprestimos - erro: o leitor 99 não existe (404)
+POST {{base}}/emprestimos
+Content-Type: application/json
+
+{
+  "livroId": 2,
+  "leitorId": 99
+}
+
+### 37. GET /leitores/:id/emprestimos - todos os empréstimos da Ana (200)
+GET {{base}}/leitores/1/emprestimos
+
+### 38. GET /leitores/:id/emprestimos - só os que estão em aberto (200)
+GET {{base}}/leitores/1/emprestimos?status=aberto
+
+### 39. GET /leitores/:id/emprestimos - erro: leitor não existe (404)
+GET {{base}}/leitores/999/emprestimos
+
+### 40. PATCH /emprestimos/:id/devolucao - Ana devolve em dia (200)
+# A multa fica em 0 porque não passou da data prevista.
+PATCH {{base}}/emprestimos/1/devolucao
+
+### 41. PATCH /emprestimos/:id/devolucao - ERRO DA REGRA R5 (409, codigo JA_DEVOLVIDO)
+# Esse empréstimo já foi devolvido na requisição 40.
+PATCH {{base}}/emprestimos/1/devolucao
+
+### 42. PATCH /emprestimos/:id/devolucao - erro: empréstimo não existe (404)
+PATCH {{base}}/emprestimos/999/devolucao
+
+### 43. DELETE /livros/:id - agora o Dom Casmurro pode ser excluído (204)
+# A Ana devolveu na requisição 40, então a regra R6 não barra mais.
+DELETE {{base}}/livros/1
+
+
+# =============================================================
+# REGRA R4 - A MULTA DE ATRASO
+# =============================================================
+#
+# A R4 é diferente das outras: ela não devolve erro nenhum, ela calcula um
+# valor. Pra ver a multa funcionando eu preciso de um empréstimo atrasado, e a
+# API nunca cria um atrasado, porque a regra R3 sempre joga a data prevista
+# 14 dias pra frente.
+#
+# Então, pra testar, rode esse comando no terminal pra puxar a data prevista
+# do empréstimo 2 cinco dias pra trás:
+#
+#   docker exec biblioteca-postgres psql -U postgres -d biblioteca -c "UPDATE emprestimos SET \"dataPrevista\" = CURRENT_DATE - 5 WHERE id = 2;"
+#
+# Depois rode a requisição abaixo. A resposta vem com "multa": 5, que é
+# R$ 1,00 por cada um dos 5 dias de atraso.
+
+### 44. PATCH /emprestimos/:id/devolucao - devolução com 5 dias de atraso (200, multa 5)
+PATCH {{base}}/emprestimos/2/devolucao

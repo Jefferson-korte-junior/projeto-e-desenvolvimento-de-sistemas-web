@@ -1,0 +1,46 @@
+// Diagrama ER da API da Biblioteca
+//
+// A imagem pronta do diagrama esta em docs/modelo.png.
+//
+// Este arquivo e o mesmo modelo escrito no formato do dbdiagram.io. Se quiser
+// mexer no desenho, abra https://dbdiagram.io/d, apague o exemplo que vem na
+// tela, cole tudo que esta aqui e exporte em Export > Export to PNG.
+//
+// pk = chave primaria, as setas sao as chaves estrangeiras.
+// A FK sempre fica no lado do N do relacionamento.
+
+Table autores {
+  id integer [pk, increment]
+  nome varchar(120) [not null]
+}
+
+Table categorias {
+  id integer [pk, increment]
+  nome varchar(120) [not null]
+}
+
+Table livros {
+  id integer [pk, increment]
+  titulo varchar(200) [not null]
+  ano integer [not null]
+  exemplares integer [not null, default: 1, note: 'quantas copias a biblioteca tem']
+  autor_id integer [not null, ref: > autores.id]
+  categoria_id integer [not null, ref: > categorias.id]
+}
+
+Table leitores {
+  id integer [pk, increment]
+  nome varchar(120) [not null]
+  matricula varchar(20) [not null, unique]
+  email varchar(120) [not null]
+}
+
+Table emprestimos {
+  id integer [pk, increment]
+  livro_id integer [not null, ref: > livros.id]
+  leitor_id integer [not null, ref: > leitores.id]
+  dataRetirada date [not null]
+  dataPrevista date [not null, note: 'retirada + 14 dias']
+  dataDevolucao date [null, note: 'nulo enquanto o livro nao voltou']
+  multa float [not null, default: 0, note: 'R$ 1,00 por dia de atraso']
+}

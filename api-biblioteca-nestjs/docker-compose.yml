@@ -1,0 +1,20 @@
+# Sobe um Postgres pra API usar. Assim nao precisa instalar banco na maquina.
+# Pra ligar: docker compose up -d
+services:
+  banco:
+    image: postgres:16
+    container_name: biblioteca-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: biblioteca
+    ports:
+      # 5433 do lado de fora porque a 5432 pode ja estar ocupada por um Postgres instalado na maquina
+      - "5433:5432"
+    volumes:
+      # volume nomeado: os dados ficam salvos mesmo se o container for desligado
+      - dados-biblioteca:/var/lib/postgresql/data
+
+volumes:
+  dados-biblioteca:
